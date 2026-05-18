@@ -7,13 +7,12 @@
 ```
 demo/
 ├── Jenkinsfile          # Jenkins 流水线定义文件
+├── build.sh             # 构建入口脚本（生成 dist/build-info.txt）
 ├── package.json         # Node.js 项目配置
 ├── src/
 │   └── app.js           # 示例应用源码
 ├── test/
 │   └── app.test.js      # 单元测试
-├── scripts/
-│   └── build.js         # 构建脚本
 ├── .gitignore
 └── README.md
 ```
@@ -22,11 +21,10 @@ demo/
 
 | 阶段 | 说明 |
 | --- | --- |
-| 检出代码 | 从 SCM (Git) 拉取最新代码 |
 | 安装依赖 | 执行 `npm install` |
 | 代码检查 | 执行 lint 静态检查 |
 | 运行测试 | 执行单元测试（可通过参数跳过） |
-| 构建产物 | 生成 `dist/` 目录下的发布物 |
+| 构建产物 | 执行 `bash build.sh`，生成 `dist/build-info.txt` |
 | 归档产物 | Jenkins 归档构建产物 |
 | 部署 | 部署到指定环境（生产需手动确认） |
 
@@ -71,7 +69,7 @@ demo/
 npm install
 npm run lint
 npm test
-npm run build
+bash build.sh    # 生成 dist/build-info.txt 用于归档
 npm start
 ```
 
