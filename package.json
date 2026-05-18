@@ -1,0 +1,19 @@
+{
+  "name": "demo-app",
+  "version": "1.0.0",
+  "description": "Jenkins 流水线示例项目",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "lint": "echo Running lint check... && node -c src/app.js && echo Lint passed.",
+    "test": "node test/app.test.js",
+    "build": "node scripts/build.js"
+  },
+  "keywords": [
+    "jenkins",
+    "pipeline",
+    "demo"
+  ],
+  "author": "demo",
+  "license": "MIT"
+}
